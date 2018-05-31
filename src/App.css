@@ -1,34 +1,86 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100,400");
+
+/* The entire app */
 .App {
   text-align: center;
+  height: 200vh;
 }
 
+/* solinor logo image */
 .App-logo {
-  /* animation: App-logo-spin infinite 20s linear; */
   width: 100%;
   height: auto;
+  max-height: 50vh;
 }
 
+/* logo container */
 .App-header {
+  /* border: 1px solid red; */
 }
 
-.App-title {
-  font-size: 300%;
+/* main body containing text element */
+.App-body {
+  /* border: 1px solid green; */
+}
+/* text */
+.title {
+  /* font-size: 300%; */
   font-weight: 300;
   font-family: "Lato", sans-serif;
   text-transform: uppercase;
   color: darkblue;
+  margin-top: 10vh;
 }
 
-.App-intro {
+.App-title {
   font-family: "Lato", sans-serif;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* footer div containing generate btn */
+.App-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 30vh;
+  background-color: #000029;
+}
+.generateBtn {
+  padding: 20px 60px;
+  outline: none;
+  background-color: #3ea2d5;
+  margin-top: 5vh;
+  font-size: 100%;
+  border-radius: 5px;
+  box-shadow: 0 9px #95a5a6;
+  transition: 0.25s all;
+  color: #000029;
+  border: none;
+  font-family: "Lato", sans-serif;
+}
+
+.generateBtn:hover {
+  background-color: #92cae8;
+}
+.generateBtn:active {
+  background-color: #2ecc71;
+  box-shadow: 0 5px #95a5a6;
+  transform: translateY(4px);
+}
+
+.page-Two {
+  position: absolute;
+  top: 100vh;
+  height: 100vh;
+  width: 100vw;
+  background-color: #9997ca;
+}
+
+.page-TwoTop {
+  height: 3vh;
+  background-color: #7f7eb1;
+}
+
+.page-TwoHeader {
+  height: 25vh;
+  background-color: #8e8cc5;
 }
