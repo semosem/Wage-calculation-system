@@ -1,0 +1,27 @@
+.page-TwoHeader {
+  text-align: left;
+  /* border: 1px solid red; */
+  padding: 20px 60px;
+}
+.btn_loadExample {
+  padding: 20px 60px;
+  outline: none;
+  background-color: #3ea2d5;
+  margin-top: 5vh;
+  font-size: 100%;
+  border-radius: 5px;
+  box-shadow: 0 9px #95a5a6;
+  transition: 0.25s all;
+  color: #000029;
+  border: none;
+  font-family: "Lato", sans-serif;
+  margin-top: 50vh;
+}
+.btn_loadExample:hover {
+  background-color: #92cae8;
+}
+.btn_loadExample:active {
+  background-color: #2ecc71;
+  box-shadow: 0 5px #95a5a6;
+  transform: translateY(4px);
+}

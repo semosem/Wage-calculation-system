@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import logo from "./assets/images/solinor.png";
 import SecondPage from "./components/page-two";
+import scrollToComponent from "react-scroll-to-component";
+
 import "./App.css";
 
 class App extends Component {
@@ -8,17 +10,28 @@ class App extends Component {
     data: {}
   };
   componentDidMount() {
-    let url = "https://jsonplaceholder.typicode.com/posts/1";
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          data: data
-        });
-      });
+    // window.addEventListener("wheel", () => {
+    //   window.requestAnimationFrame(this.handleGetStarted.bind(this));
+    // });
   }
+
+  handleGetStarted() {
+    // if (window.scrollY > 150) {
+    //   this.refs.getStarted.style.display = "none";
+    // } else {
+    //   this.refs.getStarted.style.display = "block";
+    // }
+  }
+
+  handleScroll(r) {
+    scrollToComponent(this.refs.hello, {
+      duration: 500
+    });
+    window.removeEventListener("wheel", () => {});
+  }
+
   render() {
-    console.log(this.state.data.title);
+    // console.log(this.state.data.title);
     return (
       <div className="App">
         <header className="App-header">
@@ -32,10 +45,16 @@ class App extends Component {
         </div>
 
         <div className="App-footer">
-          <button className="generateBtn">Get started</button>
+          <button
+            onClick={this.handleScroll.bind(this)}
+            className="generateBtn"
+            ref="getStarted"
+          >
+            Get started
+          </button>
         </div>
 
-        <SecondPage />
+        <SecondPage ref="hello" />
       </div>
     );
   }
