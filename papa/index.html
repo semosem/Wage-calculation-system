@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="" charset="utf-8"></script>
+</head>
+<body>
+    <form class="form-inline">
+      <div class="form-group">
+        <label for="files">Upload a CSV formatted file:</label>
+        <input type="file" id="files"  class="form-control" accept=".csv" required />
+      </div>
+      <div class="form-group">
+
+       <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+       </div>
+    </form>
+
+    <div id="app"></div>
+<script src="papaparse.min.js" charset="utf-8"></script>
+<script type="text/javascript">
+$("#submit").on("click", function(e) {
+  e.preventDefault();
+
+  $("#files").parse({
+    config: {
+      delimiter: "auto",
+      complete: buildTable
+    },
+    before: function(file, inputElem) {
+      //console.log("Parsing file...", file);
+    },
+    error: function(err, file) {
+      //console.log("ERROR:", err, file);
+    },
+    complete: function() {
+      //console.log("Done with all files");
+    }
+  });
+});
+
+function buildTable(results) {
+  var markup = "<table class='table'>";
+  var data = results.data;
+
+  for (i = 0; i < data.length; i++) {
+    markup += "<tr>";
+    var row = data[i];
+    var cells = row.join(",").split(",");
+
+    for (j = 0; j < cells.length; j++) {
+      markup += "<td>";
+      markup += cells[j];
+      markup += "</th>";
+    }
+    markup += "</tr>";
+  }
+  markup += "</table>";
+  $("#app").html(markup);
+}
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
