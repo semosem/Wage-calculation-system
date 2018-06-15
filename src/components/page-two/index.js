@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import DataTable from "./data-table";
+import DataTable from "./data-table";
 import { connect } from "react-redux";
 import { loadHandler, processData } from "../../actions";
 import Papa from "papaparse";
@@ -20,6 +20,7 @@ class SecondPage extends Component {
   }
 
   loadHandler(event) {
+    // send the uploaded csv as an action
     let csv = event.target.result;
     this.props.onLoadHandler(csv);
   }
@@ -37,7 +38,6 @@ class SecondPage extends Component {
     this.props.onProcessData(csvToArr.data);
   }
   render() {
-    console.log(this.props);
     return (
       <div className="page-Two">
         <div className="page-TwoTop">
@@ -56,22 +56,8 @@ class SecondPage extends Component {
             with the example csv
           </p>
         </div>
-        <table className="theTable">
-          <tbody>
-            {this.props.data.map((data, index) => {
-              return (
-                <tr key={Math.random(3)}>
-                  {data.map((item, i) => {
-                    if (index === 0) {
-                      return <th key={Math.random(3)}>{item}</th>;
-                    }
-                    return <td key={i}>{item}</td>;
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+
+        <DataTable data={this.props} />
         <button
           onClick={this.onShowmeExample.bind(this)}
           className="btn_loadExample"

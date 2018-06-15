@@ -3,6 +3,17 @@
   /* border: 1px solid red; */
   padding: 20px 60px;
 }
+.theList {
+  background-color: grey;
+  display: grid;
+  width: 50vw;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+.theList li {
+  list-style: none;
+  padding: 1rem;
+  color: darkblue;
+}
 .btn_loadExample {
   padding: 20px 60px;
   outline: none;
@@ -22,14 +33,4 @@
   background-color: #2ecc71;
   box-shadow: 0 5px #95a5a6;
   transform: translateY(4px);
-}
-.theTable {
-  border: 1px solid white;
-  width: 100vw;
-}
-tbody {
-  /* background-color: lime; */
-}
-.theRow {
-  border: 1px solid white;
 }

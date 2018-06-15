@@ -7,11 +7,10 @@ import { connect } from "react-redux";
 import "./App.css";
 
 class App extends Component {
-  componentDidMount() {}
-
   handleGetStarted() {
     scrollToComponent(this.refs.hello, {
-      duration: 500
+      duration: 1500,
+      ease: "outBounce"
     });
     window.removeEventListener("wheel", () => {});
   }
