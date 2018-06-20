@@ -32,7 +32,6 @@ class SecondPage extends Component {
       alert("You must upload a csv");
     }
   }
-
   processData(csv) {
     let csvToArr = Papa.parse(csv, {
       header: true
