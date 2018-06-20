@@ -3,13 +3,14 @@
   /* border: 1px solid red; */
   padding: 20px 60px;
 }
-.theList {
-  background-color: grey;
-  display: grid;
-  width: 50vw;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+.selector {
+  padding: 2rem;
+  border: 1px solid red;
+  position: absolute;
+  right: 0;
+  top: 50vh;
 }
-.theList li {
+.table thead {
   list-style: none;
   padding: 1rem;
   color: darkblue;

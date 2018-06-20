@@ -34,8 +34,15 @@ class SecondPage extends Component {
   }
 
   processData(csv) {
-    let csvToArr = Papa.parse(csv, {});
+    let csvToArr = Papa.parse(csv, {
+      header: true
+    });
+    // console.log(csvToArr);
     this.props.onProcessData(csvToArr.data);
+  }
+
+  hadleOnSelect(e) {
+    console.log(e.target.value);
   }
   render() {
     return (
@@ -57,7 +64,7 @@ class SecondPage extends Component {
           </p>
         </div>
 
-        <DataTable data={this.props} />
+        <DataTable data={this.props} onSelect={this.hadleOnSelect.bind(this)} />
         <button
           onClick={this.onShowmeExample.bind(this)}
           className="btn_loadExample"

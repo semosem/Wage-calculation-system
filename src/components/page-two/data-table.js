@@ -1,21 +1,62 @@
 import React from "react";
 import Paper from "@material-ui/core/Paper";
+import ReactTable from "react-table";
+import "react-table/react-table.css";
 import "./pageStyle.css";
+import { Calculator } from "./s-calculator.js";
 const Butt = props => {
-  if (props.data.data) {
+  const data = props.data.data;
+  // console.log(dd);
+
+  // console.log(data);
+  const columns = [
+    {
+      Header: "Person Name",
+      accessor: "Person Name" // String-based value accessors!
+    },
+    {
+      Header: "Person ID",
+      accessor: "Person ID"
+    },
+    {
+      Header: "Date",
+      accessor: "Date"
+    },
+    {
+      Header: "Start",
+      accessor: "Start"
+    },
+    {
+      Header: "End",
+      accessor: "End"
+    }
+  ];
+  if (props.data.data.length > 1) {
+    console.log(props.data.data);
     return (
-      <ul className="theList">
-        {props.data.data.map(item => {
-          if (item) {
-            console.log(item);
-            return item.map(i => <li>{i}</li>);
-          }
-          return 0;
-        })}
-      </ul>
+      <div className="wrapper">
+        <ReactTable
+          data={data}
+          columns={columns}
+          defaultPageSize={10}
+          style={{
+            height: "400px",
+            width: "50vw"
+          }}
+          className="-striped -highlight"
+        />
+        <Calculator
+          data={props.data.data}
+          hadleSelect={props.onSelect.bind(this)}
+        />
+      </div>
     );
   }
 
-  return <Paper>hello</Paper>;
+  return (
+    <Paper>
+      <h1>Hello Please upload your CSV</h1>
+    </Paper>
+  );
 };
 export default Butt;
