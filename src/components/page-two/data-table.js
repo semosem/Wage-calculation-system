@@ -3,12 +3,11 @@ import Paper from "@material-ui/core/Paper";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./pageStyle.css";
-import { Calculator } from "./s-calculator.js";
+import { Calculator } from "./salary-calculator.js";
 const Butt = props => {
-  const data = props.data.data;
-  // console.log(dd);
+  const { data, onSelect } = props;
 
-  // console.log(data);
+  // react table columns, see ReactTable documentations for further info at --> https://react-table.js.org/#/story/readme
   const columns = [
     {
       Header: "Person Name",
@@ -31,12 +30,20 @@ const Butt = props => {
       accessor: "End"
     }
   ];
-  if (props.data.data.length > 1) {
-    console.log(props.data.data);
+
+  if (data.data.length > 1) {
+    // only run if csv is uploaded
+
+    const calculateSalary = name => {
+      let shiftStart;
+      let shiftEnd;
+      console.log(data.data, name);
+    };
+    calculateSalary("name");
     return (
       <div className="wrapper">
         <ReactTable
-          data={data}
+          data={data.data}
           columns={columns}
           defaultPageSize={10}
           style={{
@@ -45,10 +52,7 @@ const Butt = props => {
           }}
           className="-striped -highlight"
         />
-        <Calculator
-          data={props.data.data}
-          hadleSelect={props.onSelect.bind(this)}
-        />
+        <Calculator data={data.data} hadleSelect={onSelect.bind(this)} />
       </div>
     );
   }

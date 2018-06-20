@@ -11,12 +11,18 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "react-scroll-to-component": "^1.0.2",
-    "react-table": "^6.8.6"
+    "react-table": "^6.8.6",
+    "homepage": "http://gitname.github.io/Wage-calculation-system"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }
