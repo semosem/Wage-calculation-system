@@ -4,14 +4,15 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./pageStyle.css";
 import { Calculator } from "./salary-calculator.js";
-const Butt = props => {
+const DataTable = props => {
   const { data, onSelect } = props;
 
   // react table columns, see ReactTable documentations for further info at --> https://react-table.js.org/#/story/readme
   const columns = [
     {
       Header: "Person Name",
-      accessor: "Person Name" // String-based value accessors!
+      accessor: "Person Name"
+      // String-based value accessors!
     },
     {
       Header: "Person ID",
@@ -37,6 +38,9 @@ const Butt = props => {
     const calculateSalary = name => {
       let shiftStart;
       let shiftEnd;
+
+      if (shiftStart) {
+      }
       console.log(data.data, name);
     };
     calculateSalary("name");
@@ -59,8 +63,8 @@ const Butt = props => {
 
   return (
     <Paper>
-      <h1>Hello Please upload your CSV</h1>
+      <h1>Hello please upload your CSV</h1>
     </Paper>
   );
 };
-export default Butt;
+export default DataTable;
