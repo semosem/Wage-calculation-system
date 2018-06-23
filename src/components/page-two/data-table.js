@@ -4,6 +4,7 @@ import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./pageStyle.css";
 import { Calculator } from "./salary-calculator.js";
+import { Random } from "react-animated-text";
 const DataTable = props => {
   const { employees, onSelect } = props;
 
@@ -67,9 +68,14 @@ const DataTable = props => {
   }
 
   return (
-    <Paper>
-      <h1>Hello please upload your CSV</h1>
-    </Paper>
+    <div className="Waiting">
+      <Random
+        text="Waiting for your upload!"
+        effect="stretch"
+        effectChange={2.0}
+        effectDuration={2.5}
+      />
+    </div>
   );
 };
 export default DataTable;

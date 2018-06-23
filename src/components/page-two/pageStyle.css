@@ -39,7 +39,6 @@
 }
 .btn_loadExample {
   padding: 20px 60px;
-  outline: none;
   background-color: #3ea2d5;
   font-size: 100%;
   border-radius: 5px;
@@ -56,4 +55,13 @@
   background-color: #2ecc71;
   box-shadow: 0 5px #95a5a6;
   transform: translateY(4px);
+}
+.Waiting {
+  width: 100vw;
+  text-align: center;
+  /* border: 1px solid red; */
+  padding-top: 10rem;
+  font-size: 5vh;
+  font-weight: bold;
+  color: white;
 }

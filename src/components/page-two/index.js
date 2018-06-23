@@ -25,7 +25,8 @@ class SecondPage extends Component {
     this.props.onLoadHandler(csv);
   }
 
-  onShowmeExample() {
+  onShowmeExample(event) {
+    event.preventDefault();
     if (this.props.csv) {
       this.processData(this.props.csv);
     } else {
@@ -47,22 +48,28 @@ class SecondPage extends Component {
     return (
       <div className="page-Two">
         <div className="page-TwoHeader">
-          <h1>Hello Employer</h1>
+          <h1>Greetings...</h1>
           <p>Please upload your csv...</p>
-          <input
-            type="file"
-            id="csvFileInput"
-            accept=".csv"
-            onChange={this.handleFiles.bind(this)}
-          />
+
+          <form className="">
+            <label>
+              CSV:
+              <input
+                type="file"
+                id="csvFileInput"
+                accept=".csv"
+                onChange={this.handleFiles.bind(this)}
+              />
+            </label>
+            <input
+              type="submit"
+              value="Show me"
+              onClick={this.onShowmeExample.bind(this)}
+              className="btn_loadExample"
+            />
+          </form>
         </div>
         <DataTable employees={this.props.employees} />
-        <button
-          onClick={this.onShowmeExample.bind(this)}
-          className="btn_loadExample"
-        >
-          Show me an example
-        </button>
       </div>
     );
   }
