@@ -5,9 +5,10 @@ import "react-table/react-table.css";
 import "./pageStyle.css";
 import { Calculator } from "./salary-calculator.js";
 const DataTable = props => {
-  const { data, onSelect } = props;
+  const { employees, onSelect } = props;
 
   // react table columns, see ReactTable documentations for further info at --> https://react-table.js.org/#/story/readme
+
   const columns = [
     {
       Header: "Person Name",
@@ -32,22 +33,26 @@ const DataTable = props => {
     }
   ];
 
-  if (data.data.length > 1) {
+  if (employees.length > 1) {
     // only run if csv is uploaded
-
-    const calculateSalary = name => {
-      let shiftStart;
-      let shiftEnd;
-
+    const calculateSalary = (name, i) => {
+      const salaryPerHour = 4.25;
+      let shiftStart = employees[i].Start;
+      let shiftEnd = employees[i].End;
+      // console.table(shiftStart, shiftEnd);
       if (shiftStart) {
+        let timeAtWork = parseInt(shiftEnd) - parseInt(shiftStart);
       }
-      console.log(data.data, name);
     };
-    calculateSalary("name");
+
+    employees.map((employee, index) => {
+      calculateSalary(employee, index);
+    });
+
     return (
       <div className="wrapper">
         <ReactTable
-          data={data.data}
+          data={employees}
           columns={columns}
           defaultPageSize={10}
           style={{
@@ -56,7 +61,7 @@ const DataTable = props => {
           }}
           className="-striped -highlight"
         />
-        <Calculator data={data.data} hadleSelect={onSelect.bind(this)} />
+        <Calculator employees={employees} />
       </div>
     );
   }

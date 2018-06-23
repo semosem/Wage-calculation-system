@@ -5,9 +5,9 @@ export const loadHandler = csv => {
   };
 };
 
-export const processData = lines => {
+export const processData = employees => {
   return {
     type: "SHOW_EXAPMLE",
-    payload: lines
+    payload: employees
   };
 };

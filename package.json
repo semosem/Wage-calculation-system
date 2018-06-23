@@ -2,6 +2,8 @@
   "name": "solinor",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://semosem.github.io/Wage-calculation-system",
+
   "dependencies": {
     "@material-ui/core": "^1.1.0",
     "@material/card": "^0.36.0",
@@ -11,8 +13,7 @@
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
     "react-scroll-to-component": "^1.0.2",
-    "react-table": "^6.8.6",
-    "homepage": "http://semosem.github.io/Wage-calculation-system"
+    "react-table": "^6.8.6"
   },
   "scripts": {
     "start": "react-scripts start",

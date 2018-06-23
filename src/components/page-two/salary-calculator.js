@@ -1,10 +1,13 @@
 import React from "react";
 export const Calculator = props => {
-  const employees = []; //store employee names from csv, later filter is used to display names only once in the option tags to calculate salary
-
-  for (let employee of props.data) {
+  console.log(props);
+  const { employees } = props;
+  console.log(employees);
+  //store employee names from csv, later filter is used to display names only once in the option tags to calculate salary
+  const employeeNames = [];
+  for (let employee of employees) {
     if (employee["Person Name"]) {
-      employees.push(employee["Person Name"]);
+      employeeNames.push(employee["Person Name"]);
     }
   }
 
@@ -13,8 +16,9 @@ export const Calculator = props => {
       <p>
         Choose employee name from the list below to calculate his/her salary
       </p>
-      <select onChange={props.hadleSelect.bind(this)}>
-        {employees.filter((v, i, a) => a.indexOf(v) === i).map(row => {
+      <select>
+        {employeeNames.filter((v, i, a) => a.indexOf(v) === i).map(row => {
+          console.log(row);
           return (
             <option key={Math.random(2)} value={row}>
               {row}

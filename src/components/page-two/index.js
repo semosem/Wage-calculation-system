@@ -20,8 +20,8 @@ class SecondPage extends Component {
   }
 
   loadHandler(event) {
+    const csv = event.target.result;
     // send the uploaded csv as an action
-    let csv = event.target.result;
     this.props.onLoadHandler(csv);
   }
 
@@ -33,20 +33,22 @@ class SecondPage extends Component {
     }
   }
   processData(csv) {
-    let csvToArr = Papa.parse(csv, {
+    const csvToArr = Papa.parse(csv, {
       header: true
     });
-    // console.log(csvToArr);
     this.props.onProcessData(csvToArr.data);
   }
 
   hadleOnSelect(e) {
     console.log(e.target.value);
   }
+
   render() {
     return (
       <div className="page-Two">
-        <div className="page-TwoTop">
+        <div className="page-TwoHeader">
+          <h1>Hello Employer</h1>
+          <p>Please upload your csv...</p>
           <input
             type="file"
             id="csvFileInput"
@@ -54,16 +56,7 @@ class SecondPage extends Component {
             onChange={this.handleFiles.bind(this)}
           />
         </div>
-        <div className="page-TwoHeader">
-          <h1>Hello E</h1>
-          <p>
-            Please upload your csv using the above button or just press the
-            button below to to use the monthly wage calculation system to test
-            with the example csv
-          </p>
-        </div>
-
-        <DataTable data={this.props} onSelect={this.hadleOnSelect.bind(this)} />
+        <DataTable employees={this.props.employees} />
         <button
           onClick={this.onShowmeExample.bind(this)}
           className="btn_loadExample"
@@ -79,4 +72,7 @@ const mapActionsToProps = {
   onLoadHandler: loadHandler,
   onProcessData: processData
 };
-export default connect(mapStateToProps, mapActionsToProps)(SecondPage);
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(SecondPage);

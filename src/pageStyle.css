@@ -67,21 +67,3 @@
   box-shadow: 0 5px #95a5a6;
   transform: translateY(4px);
 }
-
-.page-Two {
-  position: absolute;
-  top: 100vh;
-  height: 100vh;
-  width: 100vw;
-  background-color: #9997ca;
-}
-
-.page-TwoTop {
-  height: 3vh;
-  background-color: #7f7eb1;
-}
-
-.page-TwoHeader {
-  height: 25vh;
-  background-color: #8e8cc5;
-}
