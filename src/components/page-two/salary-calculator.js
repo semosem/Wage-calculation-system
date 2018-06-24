@@ -1,8 +1,6 @@
 import React from "react";
 export const Calculator = props => {
-  console.log(props);
   const { employees } = props;
-  console.log(employees);
   //store employee names from csv, later filter is used to display names only once in the option tags to calculate salary
   const employeeNames = [];
   for (let employee of employees) {
@@ -11,6 +9,22 @@ export const Calculator = props => {
     }
   }
 
+  const calculateSalary = (name, i) => {
+    const salaryPerHour = 4.25;
+
+    if (employees[i].Start && employees[i].End) {
+      let shiftStartHour = employees[i].Start.split(":")[0];
+      let shiftStartMin = employees[i].Start.split(":")[1];
+
+      let shiftEndHour = employees[i].End.split(":")[0];
+      let shiftEndMin = employees[i].End.split(":")[1];
+      console.log(shiftStartHour, ">", shiftEndHour);
+    }
+  };
+
+  employees.map((employee, index) => {
+    return calculateSalary(employee, index);
+  });
   return (
     <div className="selector">
       <p>
@@ -18,7 +32,6 @@ export const Calculator = props => {
       </p>
       <select>
         {employeeNames.filter((v, i, a) => a.indexOf(v) === i).map(row => {
-          console.log(row);
           return (
             <option key={Math.random(2)} value={row}>
               {row}

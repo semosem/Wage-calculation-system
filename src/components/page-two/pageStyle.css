@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Lato");
 .page-Two {
   position: absolute;
   top: 100vh;
@@ -12,9 +13,10 @@
 }
 
 .page-TwoHeader {
-  height: 25vh;
+  height: 35vh;
   background-color: #8e8cc5;
   padding: 20px 60px;
+  font-family: "Lato", sans-serif;
 }
 .page-TwoHeader::before {
   content: "";
@@ -27,7 +29,10 @@
   left: 0;
   display: block;
 }
-
+.theForm {
+  /* border: 1px solid red; */
+  padding: 1rem 0 0 0;
+}
 .selector {
   width: 50vw;
   background-color: #7f7eb1;
@@ -46,7 +51,6 @@
   transition: 0.25s all;
   color: #000029;
   border: none;
-  font-family: "Lato", sans-serif;
 }
 .btn_loadExample:hover {
   background-color: #92cae8;
@@ -63,5 +67,7 @@
   padding-top: 10rem;
   font-size: 5vh;
   font-weight: bold;
+  font-family: "Lato", sans-serif;
+  text-transform: capitalize;
   color: white;
 }

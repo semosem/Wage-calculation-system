@@ -49,11 +49,10 @@ class SecondPage extends Component {
       <div className="page-Two">
         <div className="page-TwoHeader">
           <h1>Greetings...</h1>
-          <p>Please upload your csv...</p>
+          <p>Please upload your csv</p>
 
-          <form className="">
+          <form className="theForm">
             <label>
-              CSV:
               <input
                 type="file"
                 id="csvFileInput"
@@ -65,7 +64,6 @@ class SecondPage extends Component {
               type="submit"
               value="Show me"
               onClick={this.onShowmeExample.bind(this)}
-              className="btn_loadExample"
             />
           </form>
         </div>
