@@ -11,13 +11,12 @@ export const Calculator = props => {
     }
   }
 
-  const calculateSalary = (employee, i) => {
-    // const salaryPerHour = 4.25;
-  };
+  const calculateSalary = (employee, i) => {};
 
   employees.map((employee, index) => {
     return calculateSalary(employee, index);
   });
+
   return (
     <div className="selector">
       <p>
