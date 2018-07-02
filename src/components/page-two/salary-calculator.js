@@ -1,4 +1,6 @@
 import React from "react";
+// import Moment from "react-moment";
+
 export const Calculator = props => {
   const { employees } = props;
   //store employee names from csv, later filter is used to display names only once in the option tags to calculate salary
@@ -9,17 +11,8 @@ export const Calculator = props => {
     }
   }
 
-  const calculateSalary = (name, i) => {
-    const salaryPerHour = 4.25;
-
-    if (employees[i].Start && employees[i].End) {
-      let shiftStartHour = employees[i].Start.split(":")[0];
-      let shiftStartMin = employees[i].Start.split(":")[1];
-
-      let shiftEndHour = employees[i].End.split(":")[0];
-      let shiftEndMin = employees[i].End.split(":")[1];
-      console.log(shiftStartHour, ">", shiftEndHour);
-    }
+  const calculateSalary = (employee, i) => {
+    // const salaryPerHour = 4.25;
   };
 
   employees.map((employee, index) => {

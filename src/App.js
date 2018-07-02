@@ -3,6 +3,7 @@ import SecondPage from "./components/page-two";
 import scrollToComponent from "react-scroll-to-component";
 import logo from "./assets/images/solinor.png";
 import "./pageStyle.css";
+
 class App extends Component {
   // when start button is clicked change components focus from page one to page two
   handleGetStarted() {
