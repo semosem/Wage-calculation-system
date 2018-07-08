@@ -1,36 +1,31 @@
 import React from "react";
-// import Moment from "react-moment";
 
 export const Calculator = props => {
   const { employees } = props;
   //store employee names from csv, later filter is used to display names only once in the option tags to calculate salary
-  const employeeNames = [];
-  for (let employee of employees) {
-    if (employee["Person Name"]) {
-      employeeNames.push(employee["Person Name"]);
-    }
-  }
-
-  const calculateSalary = (employee, i) => {};
-
-  employees.map((employee, index) => {
-    return calculateSalary(employee, index);
-  });
-
   return (
-    <div className="selector">
+    <div className="salary_display">
       <p>
         Choose employee name from the list below to calculate his/her salary
       </p>
       <select>
-        {employeeNames.filter((v, i, a) => a.indexOf(v) === i).map(row => {
-          return (
-            <option key={Math.random(2)} value={row}>
-              {row}
-            </option>
-          );
-        })}
+        {employees
+          .map(employee => {
+            if (employee["Person ID"]) {
+              return employee["Person Name"];
+            }
+          })
+          .filter((v, i, a) => a.indexOf(v) === i)
+          .map(row => {
+            return (
+              <CalculateSalary name={row} key={Math.random(2)} value={row} />
+            );
+          })}
       </select>
     </div>
   );
+};
+
+const CalculateSalary = props => {
+  return <option>{props.name}</option>;
 };

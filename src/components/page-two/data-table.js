@@ -11,7 +11,7 @@ const DataTable = props => {
 
   const columns = [
     {
-      Header: "Person Name",
+      Header: " Full name",
       accessor: "Person Name"
       // String-based value accessors!
     },
@@ -24,11 +24,11 @@ const DataTable = props => {
       accessor: "Date"
     },
     {
-      Header: "Start",
+      Header: "Shift start",
       accessor: "Start"
     },
     {
-      Header: "End",
+      Header: "Shift end",
       accessor: "End"
     }
   ];
