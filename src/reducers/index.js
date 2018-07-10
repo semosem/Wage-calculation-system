@@ -1,10 +1,13 @@
 export function globalReducer(state, action) {
+  const { payload } = action;
   switch (action.type) {
     case "CSV_ONLOAD":
-      return { ...state, csv: action.payload };
+      return { ...state, csv: payload };
+    case "PROCESS_DATA":
+      return { ...state, employees: payload };
+    case "CALCULATE_SALARY":
+      return { ...state, salary: payload };
 
-    case "SHOW_EXAPMLE":
-      return { ...state, employees: action.payload };
     default:
       return state;
   }
