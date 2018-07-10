@@ -2,8 +2,8 @@ import React from "react";
 import ReactTable from "react-table";
 import "react-table/react-table.css";
 import "./pageStyle.css";
-import { Calculator } from "./salary-calculator.js";
 import { Random } from "react-animated-text";
+import { CalculateSalary } from "./salary-calculator.js";
 const DataTable = props => {
   const { employees } = props;
 
@@ -44,9 +44,9 @@ const DataTable = props => {
           height: "400px",
           width: "50vw"
         }}
-        className="-striped -highlight"
+        className=" -highlight"
       />
-      <Calculator employees={employees} />
+      <CalculateSalary employees={employees} />
     </div>
   ) : (
     // otherwise show waiting animation
