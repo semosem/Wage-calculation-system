@@ -7,7 +7,7 @@ export const loadHandler = csv => {
 
 export const processData = employees => {
   return {
-    type: "SHOW_EXAPMLE",
+    type: "PROCESS_DATA",
     payload: employees
   };
 };

@@ -10,44 +10,41 @@ import "./pageStyle.css";
 
 class SecondPage extends Component {
   // handle upload files input
-  handleFiles(files) {
+  handleFiles = files => {
     // Check for File API support in the browser.
     if (window.FileReader && files.target.files[0]) {
       let reader = new FileReader();
       reader.readAsText(files.target.files[0]);
       // if File API exists and input file is looded, run loadHandler func
-      reader.onload = this.loadHandler.bind(this);
+      reader.onload = this.loadHandler;
     } else {
       alert("FileReader is not supported in this browser.");
     }
-  }
+  };
   // send the uploaded csv as an action
-  loadHandler(event) {
+  loadHandler = event => {
     const csv = event.target.result;
     this.props.onLoadHandler(csv);
-  }
+  };
   // "process" btn handler. uses Papa library to parse csv to an array and update redux state tree
-  onProcessCsv(event) {
+  onProcessCsv = event => {
     event.preventDefault();
     if (this.props.csv) {
-      const { csv } = this.props;
+      const { csv, onProcessData } = this.props;
       const csvToArr = Papa.parse(csv, {
         header: true
       });
-      this.props.onProcessData(csvToArr.data);
+      onProcessData(csvToArr.data);
     } else {
       alert("Please upload a csv first");
     }
-  }
+  };
 
   render() {
     const { employees } = this.props;
     return (
       <div className="page-Two">
-        <Form
-          handleFiles={this.handleFiles.bind(this)}
-          onProcessCsv={this.onProcessCsv.bind(this)}
-        />
+        <Form handleFiles={this.handleFiles} onProcessCsv={this.onProcessCsv} />
         <DataTable employees={employees} />
       </div>
     );
