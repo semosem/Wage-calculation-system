@@ -30,7 +30,7 @@
   display: block;
 }
 .theForm {
-  /* border: 1px solid red; */
+  border: 1px solid #7f7eb1;
   padding: 1rem 0 0 0;
 }
 .salary_display {
