@@ -34,13 +34,13 @@
   padding: 1rem 0 0 0;
 }
 .salary_display {
-  width: 50vw;
+  width: 100vw;
   background-color: #7f7eb1;
   text-align: center;
 }
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
 }
 .btn_loadExample {
   padding: 20px 60px;
