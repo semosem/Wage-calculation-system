@@ -36,16 +36,6 @@ const DataTable = props => {
   return employees.length > 1 ? (
     // only run if csv is uploaded
     <div className="wrapper">
-      <ReactTable
-        data={employees}
-        columns={columns}
-        defaultPageSize={10}
-        style={{
-          height: "400px",
-          width: "50vw"
-        }}
-        className=" -highlight"
-      />
       <CalculateSalary employees={employees} />
     </div>
   ) : (
