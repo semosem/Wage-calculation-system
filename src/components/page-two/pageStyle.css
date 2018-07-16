@@ -39,8 +39,8 @@
   text-align: center;
 }
 .wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr; */
 }
 .btn_loadExample {
   padding: 20px 60px;
