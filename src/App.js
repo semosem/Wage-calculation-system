@@ -6,12 +6,12 @@ import "./pageStyle.css";
 
 class App extends Component {
   // when start button is clicked change components focus from page one to page two
-  handleGetStarted() {
+  handleGetStarted = () => {
     scrollToComponent(this.refs.pageTwo, {
       duration: 1500,
       ease: "outBounce"
     });
-  }
+  };
 
   render() {
     return (
@@ -28,7 +28,7 @@ class App extends Component {
 
           <div className="App-footer">
             <button
-              onClick={this.handleGetStarted.bind(this)}
+              onClick={this.handleGetStarted}
               className="generateBtn"
               ref="getStarted"
             >
